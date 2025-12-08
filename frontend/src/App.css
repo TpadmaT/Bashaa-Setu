@@ -1,0 +1,17 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+   /* image in public folder */
+  background-size: cover;              /* cover entire viewport */
+  background-position: center;         /* center the image */
+  background-repeat: no-repeat;        /* do not repeat */
+  height: 100vh;                       /* full viewport height */
+  font-family: sans-serif;
+  color: white;
+  display: flex;                       /* optional: center content */
+  align-items: center;                 /* optional */
+  justify-content: center;             /* optional */
+  font-size: 2rem;                     /* optional */
+}
