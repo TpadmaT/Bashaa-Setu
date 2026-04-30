@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 from gtts import gTTS
 import base64
 from io import BytesIO
@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-translator = Translator()
+translator = GoogleTranslator(source='auto', target='en')
 
 class RequestBody(BaseModel):
     text: str
@@ -26,7 +26,7 @@ class RequestBody(BaseModel):
 @app.post("/translate")
 def translate(req: RequestBody):
     # translation
-    translated = translator.translate(req.text, dest=req.lang).text
+    translated = GoogleTranslator(source='auto', target=req.lang).translate(req.text)
 
     # audio generation
     buf = BytesIO()
